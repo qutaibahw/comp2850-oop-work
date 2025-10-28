@@ -45,15 +45,13 @@ class WordleTest : StringSpec({
 
 
 //TESTS FOR EVALUATE GUESS
-
+"pickRandomWord should remove the word from the list and return a valid word" {
 val words = mutableListOf("HONDA", "CRATE")
 val chosen = pickRandomWord(words)
-words.contains(chosen) shouldBe false // word removed
-chosen in listOf("HONDA", "CRATE") shouldBe true
+words.contains(chosen) shouldBe false       //teh word should be removed
+(chosen in listOf("HONDA", "CRATE")) shouldBe true 
 
-
-
-
+}
 
 
 
