@@ -1,26 +1,27 @@
+
+const val MAX_ATTEMPTS = 10
 fun main() {
 
-var filename= "/workspaces/comp2850-oop-work/portfolio/wordle/data/words.txt"
+var filename = "/workspaces/comp2850-oop-work/portfolio/wordle/data/words.txt"
 var words = readWordList(filename)
-val chosen_word = pickRandomWord(words)
+val chosenWord = pickRandomWord(words)
 
-    val attempts = 10
-    var current_attempts = 0
+    var currentAttempts = 0
 
-    while (current_attempts < attempts) {
-        val guess_input = obtainGuess(current_attempts + 1)
-        val matches = evaluateGuess(guess_input, chosen_word)
-        displayGuess(guess_input, matches)
+    while (currentAttempts < MAX_ATTEMPTS) {
+        val guessInput = obtainGuess(currentAttempts + 1)
+        val matches = evaluateGuess(guessInput, chosenWord)
+        displayGuess(guessInput, matches)
 
 
-    if (guess_input == chosen_word) {
-        println("correct the word was indeed $chosen_word \n")
+    if (guessInput == chosenWord) {
+        println("correct the word was indeed $chosenWord \n")
         break
     }
 
-    current_attempts++
-    if (current_attempts == attempts) {
-        println("Game Over: the word was actually $chosen_word\n")
+    currentAttempts++
+    if (currentAttempts == MAX_ATTEMPTS) {
+        println("Game Over: the word was actually $chosenWord\n")
     }
 }
 }
